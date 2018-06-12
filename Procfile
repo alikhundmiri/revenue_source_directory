@@ -1,0 +1,1 @@
+web: gunicorn rs_directory.wsgi --log-file -
