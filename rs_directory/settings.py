@@ -26,9 +26,9 @@ SECRET_KEY = 'lqk-v#!^9ghiz6m+qf80i2a$dxynt98if43g70_pj2lkh6=&_z'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'https://revensours.herokuapp.com/',
-'http://revensours.herokuapp.com/',
-'revensours.herokuapp.com/',
+'https://revensours.herokuapp.com',
+'http://revensours.herokuapp.com',
+'revensours.herokuapp.com',
 'http://127.0.0.1:8000/',
 '127.0.0.1',
 ]
