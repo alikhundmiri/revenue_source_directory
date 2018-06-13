@@ -1,5 +1,36 @@
 {% extends 'base.html' %}
 
+
+{% block meta_description %}A database of websites which help you earn real money in exchange of real work. No Online survey sh!t, or buy-my-books scams. This is a list of real deal.{% endblock %}
+
+{% block meta_author %}Ali Khundmiri of NewLifeShoes{% endblock %}
+
+{% block other_meta %}
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:site" content="Ali Khundmiri of @newlifeshoes">
+
+<meta name="twitter:creator" content="Ali Khundmiri of @newlifeshoes">
+
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<meta name="twitter:image" content="https://s3.amazonaws.com/side-projects/rs_directory/media/base/reven_sours_social_image.png">
+
+<meta property="og:image" content="https://s3.amazonaws.com/side-projects/rs_directory/media/base/reven_sours_social_image.png">
+
+<meta name="twitter:title" content="Reven Sours! Curated list of real online income sources!">
+
+<meta property="og:title" content="Reven Sours! Curated list of real online income sources!">
+
+<meta name="twitter:description" content="A database of websites which help you earn real money in exchange of real work. No Online survey sh!t, or buy-my-books scams. This is a list of real deal.">
+
+<meta property="og:description" content="A database of websites which help you earn real money in exchange of real work. No Online survey sh!t, or buy-my-books scams. This is a list of real deal.">
+
+{% endblock %}
+
+
+
 {% block head_extras %}
 <style type="text/css">
 .custom_card{
