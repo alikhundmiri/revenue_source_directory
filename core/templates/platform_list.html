@@ -68,7 +68,7 @@
 	<div class="row">
 		<div class="card-columns">
 			{% for platform in all_platforms %}
-			{% if forloop.counter|divisibleby:1 %}
+			{% if forloop.counter == 5 %} <!-- This number is the position of advert -->
 			{% for advert in adverts %}
 			<div class="card  custom_card">
 				<div class="card-body">

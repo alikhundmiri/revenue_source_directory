@@ -13,8 +13,7 @@ def index(request):
 
 def platform_list(request):
 	count_ads = ads.objects.count()
-	adverts = fetch_adverts(3)
-	print(adverts)
+	adverts = fetch_adverts(1) # This number is the amount of ads
 	all_platforms = platform.objects.filter(all_sources__public_display=True, public_display=True).distinct()
 	context = {
 	"all_platforms" : all_platforms,
