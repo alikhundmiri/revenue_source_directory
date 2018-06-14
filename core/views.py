@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from random import randint
+from django.conf import settings
+
 
 from .models import Type_of_Platform, platform, sources
 from advertisment.models import ads
-
+from advertisment.views import fetch_adverts
 
 def index(request):
 	context = {}
@@ -11,10 +13,12 @@ def index(request):
 
 def platform_list(request):
 	count_ads = ads.objects.count()
-	adverts = ads.objects.filter(public_display=True)[randint(0, count_ads - 1)]
+	adverts = fetch_adverts(3)
+	print(adverts)
 	all_platforms = platform.objects.filter(all_sources__public_display=True, public_display=True).distinct()
 	context = {
 	"all_platforms" : all_platforms,
-	"advert" :adverts,
+	"adverts" :adverts,
+	"production" : settings.PRODUCTION,
 	}
 	return render(request, 'platform_list.html', context)

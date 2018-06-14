@@ -68,10 +68,20 @@
 	<div class="row">
 		<div class="card-columns">
 			{% for platform in all_platforms %}
-			{% if forloop.counter == 9 %}
-			<div class="card">
+			{% if forloop.counter|divisibleby:1 %}
+			{% for advert in adverts %}
+			<div class="card  custom_card">
+				<div class="card-body">
+					<h4 class="card-title">
+						<a href="#" target="_blank">ADS{{forloop.counter}} {{advert.client_name}}</a>
+					</h4>
+				</div>
+				{% comment %}
+				{% url 'advertisment:advert_redirect' advert.id %}
 				<a href="{{advert.website}}" target="_blank"><img class="card-img-top" src="{{advert.image.url}}" alt="{{advert.client_description}}"></a>
+				{% endcomment %}
 			</div>
+			{% endfor %}
 			{% endif %}
 			<div class="card custom_card">
 				{% if platform.image %}
@@ -79,7 +89,7 @@
 				{% endif %}
 				<div class="card-body">
 					<h4 class="card-title">
-						<a href="{{platform.website}}" target="_blank">{{platform.platform_name}}</a>
+						<a href="{{platform.website}}" target="_blank">{{forloop.counter}} {{platform.platform_name}}</a>
 					</h4>
 					<p class="card-text">{{platform.platform_description}}</p>
 					{% for source in platform.all_sources.all %}

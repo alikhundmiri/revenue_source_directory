@@ -24,6 +24,8 @@
 
 	{% block head_extras %}
 	{% endblock %}
+
+	{% if production %}
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120716072-1"></script>
 	<script>
@@ -33,7 +35,7 @@
 
 		gtag('config', 'UA-120716072-1');
 	</script>
-
+	{% endif %}
 </head>
 
 <body>
