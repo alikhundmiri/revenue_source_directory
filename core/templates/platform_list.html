@@ -43,6 +43,17 @@
 	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
+
+.custom_card_advert{
+	background-color: #EDE8EB;
+/*	border: transparent;*/
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.custom_card_advert:hover{
+	background-color: #E2D6C9;
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
 </style>
 {% endblock %}
 
@@ -51,14 +62,7 @@
 
 <div class="container">
 	<div style="margin-top: 50px"></div>
-	<div class="jumbotron">
-		<h1 class="display-4">Reven Sours!</h1>
-		<p class="lead">Revenue Source Database.</p>
-		<hr class="my-4">
-		<p>I wanted to make a database with all those websites around the web which allows you to earn a little extra cash.
-		This is just a list, please do your own research before jumping in to the platform.</p>
-
-	</div>
+	
 	<!-- Page Heading -->
 	<h1 class="my-4">Platforms
 		<small></small>
@@ -70,11 +74,11 @@
 			{% for platform in all_platforms %}
 			{% if forloop.counter == 5 %} <!-- This number is the position of advert -->
 			{% for advert in adverts %}
-			<div class="card  custom_card">
+			<div class="card  custom_card_advert">
 				<p style="color: #6D1B06; padding: 5px" class="float-right"><sup>SPONSORED</sup></p>
 				<div class="card-body">
 					<h4 class="card-title" style="margin-bottom: 0px !important;">
-						<a href="#" target="_blank">{{advert.client_name}}</a>
+						<a href="{% url 'advertisment:advert_redirect' advert.id %}" target="_blank">{{advert.client_name}}</a>
 					</h4>
 					<p class="card-text">{{advert.client_description}}</p>
 				</div>
@@ -134,6 +138,24 @@
 		</li>
 	</ul> -->
 
+</div>
+<div class="container">
+	<div style="margin-top: 50px"></div>
+
+	<!-- Page Heading -->
+	<br>
+	<h1 class="my-4">About this Project!
+		<small></small>
+	</h1>
+	<hr>
+	<div class="jumbotron">
+		<h1 class="display-4">Reven Sours!</h1>
+		<p class="lead">Revenue Source Database.</p>
+		<hr class="my-4">
+		<p>I wanted to make a database with all those websites around the web which allows you to earn a little extra cash.
+		This is just a list, please do your own research before jumping in to the platform.</p>
+
+	</div>
 </div>
 <!-- /.container -->
 {% endblock %}

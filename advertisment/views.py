@@ -4,23 +4,26 @@ import random
 
 from .models import ads
 # Create your views here.
-def advert_redirect(request, id=None):
-	
-	ad = ads.objects.filter(id=id)
 
+def advert_redirect(request, id=None):
+	# fetch the single ad object, or 404
+	ad = get_object_or_404(ads, id=id)
+
+	# the link from website item
 	newlink = ad.website
-	# print(newlink)
+	# increment the click count
 	ad.click_count += 1
-	if timezone.now() > ad.advert_end:
+
+	# now check for if the time of advertisment is over.
+	if timezone.now() > ad.advert_time:
 		# if the number of clicks are equal to requested clicks, turn off the advert status
 		ad_contract_completion(ad)
 	else:
 		pass
+	# save the advert. 
 	ad.save()
-
+	# return to the link of this advert!
 	return HttpResponseRedirect(newlink)
-
-
 
 
 
