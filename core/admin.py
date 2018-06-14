@@ -12,11 +12,11 @@ class TypePlatformAdmin(admin.ModelAdmin):
 		model = Type_of_Platform
 
 class PlatformAdmin(admin.ModelAdmin):
-	list_display = ["platform_name", "user", "platform_description",  "updated", "public_display",]
-	list_filter = ["platform_name","platform_description", "timestamp", "updated"]
-	search_fields = ["user", "platform_name", "platform_description", "public_display", "updated"]
+	list_display = ["platform_name", "user", "platform_description",  "updated", "public_display",'side_note']
+	list_filter = ["platform_name","platform_description", "timestamp", "updated", 'side_note']
+	search_fields = ["user", "platform_name", "platform_description", "public_display", "updated", 'side_note']
 	filter_horizontal = ['platform_type']
-	list_editable = ['public_display']
+	list_editable = ['public_display', 'side_note']
 
 	class Meta:
 		model = platform

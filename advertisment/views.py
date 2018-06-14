@@ -39,20 +39,20 @@ def fetch_adverts(number_of_ads):
 	# fetch the total number of ads available
 	limit_ = fetch_.count()
 	if limit_ == 0:
-		print("number of ads available: 0")
+		# print("number of ads available: 0")
 		# if there are no ads, return None
 		return None
 	elif limit_ <= LOAD_ADS:
-		print("number of ads available: " + str(limit_))
+		# print("number of ads available: " + str(limit_))
 		# if the number of ads in database is less than requested number, then give all avaialble ads
 		rand_ad = fetch_[:limit_]
 	else:
-		print("number of ads available: " + str(limit_))
+		# print("number of ads available: " + str(limit_))
 		# generate 3 number from the limited range
 		num_list = random.sample(range(0, limit_), LOAD_ADS)
 		# fetch those ads
 		rand_ad = [fetch_[num] for num in num_list]
-		print(rand_ad)
+		# print(rand_ad)
 
 	# print(rand_ad)
 	# mark those ads with viewed!

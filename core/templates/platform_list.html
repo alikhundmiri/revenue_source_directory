@@ -71,10 +71,12 @@
 			{% if forloop.counter == 5 %} <!-- This number is the position of advert -->
 			{% for advert in adverts %}
 			<div class="card  custom_card">
+				<p style="color: #6D1B06; padding: 5px" class="float-right"><sup>SPONSORED</sup></p>
 				<div class="card-body">
-					<h4 class="card-title">
-						<a href="#" target="_blank">ADS{{forloop.counter}} {{advert.client_name}}</a>
+					<h4 class="card-title" style="margin-bottom: 0px !important;">
+						<a href="#" target="_blank">{{advert.client_name}}</a>
 					</h4>
+					<p class="card-text">{{advert.client_description}}</p>
 				</div>
 				{% comment %}
 				{% url 'advertisment:advert_redirect' advert.id %}
@@ -89,7 +91,10 @@
 				{% endif %}
 				<div class="card-body">
 					<h4 class="card-title">
-						<a href="{{platform.website}}" target="_blank">{{forloop.counter}} {{platform.platform_name}}</a>
+						<a href="{{platform.website}}" target="_blank">{{platform.platform_name}}</a>
+						{% if platform.side_note %}
+						<sup><sup><span class="badge badge-warning">{{platform.side_note}}</span></sup></sup>
+						{% endif %}
 					</h4>
 					<p class="card-text">{{platform.platform_description}}</p>
 					{% for source in platform.all_sources.all %}

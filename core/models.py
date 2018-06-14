@@ -40,7 +40,7 @@ class platform(models.Model):
 	platform_name			=			models.CharField(max_length=50, blank=False, null=False, default="")
 	platform_description	=			models.TextField(max_length=280, blank=True, null=True, default="")
 	platform_type			=			models.ManyToManyField(Type_of_Platform)
-
+	side_note				=			models.CharField(max_length=50, blank=True, null=True, default=None)
 	# To Avoid spam content
 	public_display			=			models.BooleanField(default=False)
 	# If the product is uploaded by the maker, this needs to be done manually.
