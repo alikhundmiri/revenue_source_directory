@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+
+
+{% block meta_description %}A database of websites which help you earn real money in exchange of real work. No Online survey sh!t, or buy-my-books scams. This is a list of real deal.{% endblock %}
+
+{% block meta_author %}Ali Khundmiri of NewLifeShoes{% endblock %}
+
+{% block other_meta %}
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:site" content="@NewLifeShoes">
+
+<meta name="twitter:creator" content="@NewLifeShoes">
+
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<meta name="twitter:image" content="https://s3.amazonaws.com/side-projects/rs_directory/media/base/reven_sours_social_image.png">
+
+<meta property="og:image" content="https://s3.amazonaws.com/side-projects/rs_directory/media/base/reven_sours_social_image.png">
+
+<meta name="twitter:title" content="{{interview.title}}">
+
+<meta property="og:title" content="{{interview.title}}">
+
+<meta name="twitter:description" content="{{interview.work_description}}">
+
+<meta property="og:description" content="{{interview.work_description}}">
+
+{% endblock %}
+
+
+
+{% block head_extras %}
+<style type="text/css">
+.custom_card{
+	background-color: #E4DFDA;
+	border: transparent;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.custom_card:hover{
+	background-color: #E2D8CE;
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.custom_card_advert{
+	background-color: #EDE8EB;
+	/*	border: transparent;*/
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.custom_card_advert:hover{
+	background-color: #E2D6C9;
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.side-panel{
+	border-radius: 5px;
+	background-color: #EF38EB;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	padding: 20px;
+}
+.side-cards{
+	border-radius: 5px;
+	background-color: #EDE8EB;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	padding: 10px;
+	margin: 10px;
+	max-height: 100%;
+}
+.side-cards:hover{
+	border-radius: 6px;
+	background-color: #E2D6C9;
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);	
+}
+.center-panel{
+	border-radius: 5px;
+	background-color: #EF38EB;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	padding: 20px;
+}
+
+</style>
+{% endblock %}
+
+
+{% block content_1 %}
+
+<div style="margin-top: 100px"></div>
+<div class="container">
+	<div class="col-lg-12 text-center">
+		<div class="row">
+			<h1>{{interview.title}}</h1>
+			<h4 class="muted-text">
+				{{interview.work_description}}
+			</h4>
+		</div>
+	</div>
+</div>
+<div style="margin-top: 50px"></div>
+
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-lg-3">
+			<!-- <h1 class="my-4">Shop Name</h1> -->
+			<div class="list-group">
+
+				{% if interview.company_name %}
+				<p class="list-group-item">
+					<small class="text-muted">Company Name</small><br>
+					{{interview.company_name}}
+				</p>
+				{% endif %}
+
+				{% if interview.location %}
+				<p class="list-group-item">
+					<small class="text-muted">Location</small><br>
+					{{interview.location}}
+				</p>
+				{% endif %}
+
+				{% if interview.revenue %}
+				<p class="list-group-item">
+					<small class="text-muted">Revenue</small><br>
+					{{interview.revenue}}
+				</p>
+				{% endif %}
+
+				{% if interview.started %}
+				<p class="list-group-item">
+					<small class="text-muted">Started</small><br>
+					{{interview.started}}
+				</p>
+				{% endif %}
+
+				{% if interview.website %}
+				<a href="{{interview.website}}" target="_blank" class="list-group-item">
+					<small class="text-muted">Website</small><br>
+					{{interview.website}}
+				</a>
+				{% endif %}
+				{% if interview.timestamp <= interview.updated %}
+				<p style="font-size: 15px; color: gray;">Updated : {{ interview.updated }}</p>
+				{% else %}
+				<p style="font-size: 15px; color: gray;">Published : {{ interview.timestamp }}</p>
+				{% endif %}
+				<!-- <p class="text-muted">Published: {{interview.updated}}</p> -->
+			</div>
+		</div>
+		<!-- /.col-lg-3 -->
+
+		<div class="col-lg-9">
+
+			<div class="card">
+				<!-- <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt=""> -->
+				<div class="card-body">
+					<!-- <h3 class="card-title">Product Name</h3> -->
+					<!-- <h4>$24.99</h4> -->
+					<p class="card-text">{{interview.detail|markdown|safe|linebreaks}}</p>
+					<!-- {% markdown_cheatsheet %} -->
+				</div>
+			</div>
+			<div class="card" style="margin-top: 40px">
+				<!-- <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt=""> -->
+				<div class="card-body">
+					<h3 class="card-title">You can find me around the web:</h3>
+					<!-- <h4>$24.99</h4> -->
+					<a href=""><p class="card-text">Facebook</p></a>
+					<a href=""><p class="card-text">Twitter</p></a>
+					<a href=""><p class="card-text">Instagram</p></a>
+					<!-- {% markdown_cheatsheet %} -->
+				</div>
+			</div>
+			<!-- /.card -->
+		</div>
+	</div>
+</div>
+
+<div style="margin-top: 100px"></div>
+
+<!-- <div class="container">
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-3 side-panel">
+			<div class="side-cards">{{interview.company_name}}</div>
+			<div class="side-cards">{{interview.location}}</div>
+			<div class="side-cards">{{interview.revenue}}</div>
+			<div class="side-cards">{{interview.started}}</div>
+			<div class="side-cards">{{interview.website}}</div>
+		</div>
+		<div class="col-sm-12 col-md-12 col-lg-9 center-panel">
+			
+		</div>
+	</div>
+</div> -->
+
+{% endblock %}

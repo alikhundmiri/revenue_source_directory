@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lqk-v#!^9ghiz6m+qf80i2a$dxynt98if43g70_pj2lkh6=&_z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-PRODUCTION = True
+DEBUG = True
+PRODUCTION = False
 
 ALLOWED_HOSTS = [
 'https://revensours.herokuapp.com',
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'accounts',
     'advertisment',
+    'people',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +50,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 'pagedown',
+    'markdown_deux',
+
 ]
+
+"""
+    https://github.com/trentm/django-markdown-deux
+    Use this link to learn more about the markdown feature used in People app.
+"""
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
