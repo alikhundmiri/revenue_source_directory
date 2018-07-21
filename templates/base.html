@@ -14,7 +14,7 @@
 	{% endblock %}
 
 
-	<title>Reven Sours - Find Services, Websites & Apps to make real Money online</title> <!-- MAX 70 Chars-->
+	<title>{% block title %}Reven Sours - Find Services, Websites & Apps to make real Money online{% endblock %}</title> <!-- MAX 70 Chars-->
 
 	<!-- Bootstrap core CSS -->
 	<link href="{% static 'base/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -49,12 +49,52 @@
 	<div class="col-lg-9 col-md-9">{% block content_header %}{% endblock %}</div>
 	<div class="col-lg-3 col-md-3"></div>
 
-	<!-- Page Content -->
 	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-2"></div>
+			<div class="col-lg-6 col-md-8 col-sm-12">
+				<!-- content -->
+				{% block content_2 %}
+				{% endblock %}
+			</div>
+			<div class="col-lg-3 col-md-3"></div>
+		</div>
+	</div>
+
+
+	{% if show_last_div %}
+	<section>
+		<div class="container">
+			<div style="margin-top: 50px"></div>
+
+
+			<div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+				<h4 class="alert-heading">Interested in getting Interviewed?</h4>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<hr>
+				<p>
+					Reven sours is a website to learn about opportunities to earn money online. You can get yourself interviewed and be featured on RevenSours. <br>
+					The only criterion to get interviewed is to be earning a decent amount of revenue using social media.
+					<br>
+					Your Niche doesn't matter!
+				</p>
+				<a class="btn btn-outline-primary" href="{% url 'people:interview_request' %}" role="button">Book your Interview Today!</a>
+
+			</div>
+		</div>	
+	</section>
+	{% endif %}
 	<!-- Footer -->
+
 	<footer class="py-5 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; <a target="_blank" href="https://twitter.com/newlifeshoes">Ali Khundmiri</a> 2018</p>
+			<p class="m-0 text-center text-white">
+				This project is created, developed and maintained by a solo maker.
+				<br>
+				Copyright &copy;  <a target="_blank" href="https://twitter.com/newlifeshoes">Ali Khundmiri</a> 2018</p>
 		</div>
 		<!-- /.container -->
 	</footer>

@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lqk-v#!^9ghiz6m+qf80i2a$dxynt98if43g70_pj2lkh6=&_z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-PRODUCTION = False
+DEBUG = False
+PRODUCTION = True
 
 ALLOWED_HOSTS = [
 'https://revensours.herokuapp.com',
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     # 'pagedown',
     'markdown_deux',
+    'crispy_forms',
 
 ]
 
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     https://github.com/trentm/django-markdown-deux
     Use this link to learn more about the markdown feature used in People app.
 """
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

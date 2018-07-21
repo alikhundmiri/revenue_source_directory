@@ -11,6 +11,54 @@ def upload_location(Post, filename):
 
 """
 
+
+class contact_details(models.Model):
+	CONTACT_LIST = (
+		('email', 'Email'),
+		('facebook', 'Facebook'),
+		('twitter', 'Twitter'),
+		('instagram', 'Instagram'),
+		('reddit', 'Reddit'),
+		)
+	
+	user					=			models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+	
+	contact_form			=			models.CharField(max_length=20, choices=CONTACT_LIST, default=CONTACT_LIST[0][0])
+	contact					=			models.CharField(max_length=100, blank=False, null=False, help_text="Guest contact name.")
+	
+	timestamp				=			models.DateTimeField(auto_now=False, auto_now_add=True)
+	updated					=			models.DateTimeField(auto_now=True, auto_now_add=False)
+  
+	def __str__(self):
+		return(self.contact + str(' | ') + self.contact_form)
+
+	class Meta:
+		ordering	 		=			["-timestamp", "-updated"]
+		verbose_name 		= 			"Contact Detail"
+		verbose_name_plural = 			"Contact Details"
+
+
+
+class queue(models.Model):	
+	user					=			models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+	
+	guest 					=			models.CharField(max_length=200, blank=False, null=False)
+
+	confirmation			=			models.BooleanField(default=False)
+	guest_contact			=			models.ManyToManyField('contact_details', related_name='guest_queue', blank=True)
+	
+	timestamp				=			models.DateTimeField(auto_now=False, auto_now_add=True)
+	updated					=			models.DateTimeField(auto_now=True, auto_now_add=False)
+
+	def __str__(self):
+		return(self.guest + str(' | ') + self.confirmation)
+
+	class Meta:
+		ordering	 		=			["-timestamp", "-updated"]
+		verbose_name 		= 			"Queue"
+		verbose_name_plural = 			"Queues"
+
+
 class interview(models.Model):
 	user					=			models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 	"""
@@ -22,7 +70,7 @@ class interview(models.Model):
 	"""
 		Title of the blog.
 	"""
-	company_name			=			models.CharField(max_length=100, blank=False, null=False)
+	company_name			=			models.CharField(max_length=100, blank=True, null=True)
 	"""
 		The Name of the company
 	"""
@@ -83,3 +131,8 @@ class interview(models.Model):
 
 	def __str__(self):
 		return(self.title)
+	class Meta:
+		ordering	 		=			["-timestamp", "-updated"]
+		verbose_name 		= 			"Interview"
+		verbose_name_plural = 			"Interviews"
+

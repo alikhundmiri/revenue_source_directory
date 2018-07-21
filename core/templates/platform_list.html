@@ -103,7 +103,7 @@
 				{% endfor %}
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-top: 20px">
 			<div class="card-columns">
 				<!-- <div class="card custom_card">
 					<div class="card-body">
@@ -116,13 +116,13 @@
 					<p style="color: #6D1B06; padding: 5px" class="float-right"><sup>From Maker</sup></p>
 					<div class="card-body">
 						<h4 class="card-title">
-							<a href="">Have a Success story?</a>
+							<a href="{% url 'people:interview_request' %}">Have a Success story?</a>
 						</h4>
 						<p class="card-text">Talk to us and get your Social Media success story featured with us!</p>
 						<!-- <p class="card-subtitle mb-2 text-muted">
 							<b>Revenue: </b>
 						</p> -->
-						<a href="" class="card-link">Contact Now</a>
+						<a href="{% url 'people:interview_request' %}" class="card-link">Contact Now</a>
 					</div>
 				</div>
 			</div>
@@ -187,29 +187,6 @@
 
 	</div>
 </section>
-
-
-<section>
-	<div class="container">
-		<div style="margin-top: 50px"></div>
-
-		<!-- Page Heading -->
-		<br>
-		<h1 class="my-4">About this Project!
-			<small></small>
-		</h1>
-		<hr>
-		<div class="jumbotron">
-			<h1 class="display-4">Reven Sours!</h1>
-			<p class="lead">Revenue Source Database.</p>
-			<hr class="my-4">
-
-			<p>Reven sours is a website to learn about opportunities to earn money online. I started with a list of websites which help you earn a bit of cash, then I transitioned into talking to people online and posted their interviews here.<br>Now here you can see and learn how people make a living online.</p>
-		</div>
-	</div>	
-</section>
-
-
 
 <!-- /.container -->
 {% endblock %}
