@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lqk-v#!^9ghiz6m+qf80i2a$dxynt98if43g70_pj2lkh6=&_z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-PRODUCTION = False
+DEBUG = True
+PRODUCTION = True
 
 ALLOWED_HOSTS = [
 'https://revensours.herokuapp.com',
