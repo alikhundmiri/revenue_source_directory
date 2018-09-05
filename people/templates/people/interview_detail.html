@@ -28,6 +28,7 @@
 
 <meta property="og:description" content="{{interview.work_description}}">
 
+
 {% endblock %}
 
 
@@ -85,6 +86,7 @@
 
 
 {% block content_1 %}
+
 {% if interview.public_display == False %}
 <div class="alert alert-warning text-center" role="alert">
 	This Post is hidden from public... please visit <a href="/admin" class="alert-link">admin page</a> to publish this issue.
@@ -145,6 +147,26 @@
 					{{interview.website}}
 				</a>
 				{% endif %}
+
+				{% if interview.facebook %}
+				<p class="list-group-item">
+					<small class="text-muted">Facebook</small><br>
+					<a target="_blank "href="https://www.Facebook.com/{{interview.facebook}}">{{interview.facebook}}</a>
+				</p>
+				{% endif %}
+				{% if interview.instagram %}
+				<p class="list-group-item">
+					<small class="text-muted">Instagram</small><br>
+					<a target="_blank "href="https://www.Instagram.com/{{interview.instagram}}">{{interview.instagram}}</a>
+				</p>
+				{% endif %}
+				{% if interview.twitter %}
+				<p class="list-group-item">
+					<small class="text-muted">Twitter</small><br>
+					<a target="_blank "href="https://www.Twitter.com/{{interview.twitter}}">{{interview.twitter}}</a>
+				</p>
+				{% endif %}
+
 				{% if interview.timestamp <= interview.updated %}
 				<p style="font-size: 15px; color: gray;">Updated : {{ interview.updated }}</p>
 				{% else %}
@@ -152,6 +174,7 @@
 				{% endif %}
 				<!-- <p class="text-muted">Published: {{interview.updated}}</p> -->
 			</div>
+			
 		</div>
 		<!-- /.col-lg-3 -->
 
@@ -165,19 +188,51 @@
 					<p class="card-text">{{interview.detail|markdown|safe|linebreaks}}</p>
 					<!-- {% markdown_cheatsheet %} -->
 				</div>
-			</div>
-			<!-- <div class="card" style="margin-top: 40px">
 				<div class="card-body">
 					<h3 class="card-title">You can find me around the web:</h3>
-					<a href=""><p class="card-text">Facebook</p></a>
-					<a href=""><p class="card-text">Twitter</p></a>
-					<a href=""><p class="card-text">Instagram</p></a>
+					{% if interview.facebook %}
+					<a href="https://www.facebook.com/{{ interview.facebook}}">
+						<p class="card-text">Logo here {{ interview.facebook}}</p>
+					</a>
+					{% endif %}
+					{% if interview.twitter %}
+					<a href="https://www.facebook.com/{{ interview.twitter}}">
+						<p class="card-text">Logo here {{ interview.twitter}}</p>
+					</a>
+					{% endif %}
+					{% if interview.instagram %}
+					<a href="https://www.facebook.com/{{ interview.instagram}}">
+						<p class="card-text">Logo here {{ interview.instagram}}</p>
+					</a>
+					{% endif %}
 				</div>
-			</div> -->
+			</div>
+			<div class="card" style="margin-top: 40px">
+				<div class="card-body">
+					<h3 class="card-title">Share with your friends</h3>
+
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+						Share on Facebook
+					</a>
+				
+
+					<a target="_blank" href="https://twitter.com/home?status={{ request.build_absolute_uri }}/">
+						Share on Twitter
+					</a>
+					<a target="_blank" href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>Share on Google+</a>
+
+					<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}/&source={{request.path}}/">
+						Share on Linkedin
+					</a>
+
+					<a target="_blank" href="https://www.reddit.com/submit/?url={{ request.build_absolute_uri }}">Share on reddit</a>
+				</div>
+			</div>
 			<!-- /.card -->
-		</div>
+		</div>	
 	</div>
 </div>
+
 
 <div style="margin-top: 100px"></div>
 

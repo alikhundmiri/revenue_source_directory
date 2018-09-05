@@ -52,7 +52,7 @@ class queue(models.Model):
 	updated					=			models.DateTimeField(auto_now=True, auto_now_add=False)
 
 	def __str__(self):
-		return(self.guest + str(' | ') + self.confirmation)
+		return(self.guest + str(' | ') + str(self.confirmation))
 
 	class Meta:
 		ordering	 		=			["-timestamp", "-updated"]
@@ -75,7 +75,7 @@ class interview(models.Model):
 	"""
 		The Name of the company
 	"""
-	location				=			models.CharField(max_length=50, blank=False, null=False)
+	location				=			models.CharField(max_length=50, blank=True, null=True)
 	"""
 		City, Country. if null leave out.
 	"""
@@ -83,12 +83,16 @@ class interview(models.Model):
 	"""
 		This is a combined revenue. total.
 		TODO: Add a foreign key field for adding all the revenue sources.
+		UPDATE/ september: No need.
 
 		The revenue field is Charfield so that we can have flexibility in terms of the unit.
 		it could be $2000 per month, or $3000-$6000 per month, also the currency could be any currency.
 	"""
 	started					=			models.DateField(blank=False)
-	work_description		=			models.TextField(max_length=280, blank=False, null=False)
+	"""
+		When was this project started.
+	"""
+	work_description		=			models.TextField(max_length=100, blank=False, null=False)
 	# Use this as the Social media Text.
 
 	"""
@@ -120,6 +124,9 @@ class interview(models.Model):
 
 	"""
 
+	facebook				=			models.CharField(max_length=100, blank=True, null=True)
+	instagram				=			models.CharField(max_length=100, blank=True, null=True)
+	twitter					=			models.CharField(max_length=100, blank=True, null=True)
 
 	source_name				=			models.CharField(max_length=50, blank=True, null=True, default="")
 	source_description		=			models.TextField(max_length=280, blank=True, null=True, default="")
