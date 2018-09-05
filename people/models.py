@@ -15,9 +15,10 @@ def upload_location(Post, filename):
 class contact_details(models.Model):
 	CONTACT_LIST = (
 		('email', 'Email'),
-		('facebook', 'Facebook'),
-		('twitter', 'Twitter'),
 		('instagram', 'Instagram'),
+		('youtube', 'YouTube'),
+		('twitter', 'Twitter'),
+		('facebook', 'Facebook'),
 		('reddit', 'Reddit'),
 		)
 	

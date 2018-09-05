@@ -17,13 +17,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from people.views import why_interview
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('core.urls', namespace='core')),
     path('interview/', include('people.urls', namespace='people')),
     path('sponsored/', include('advertisment.urls', namespace='advertisment')),
+
+    path('why_interview/', why_interview, name='why_interview'),
 
 ]
 

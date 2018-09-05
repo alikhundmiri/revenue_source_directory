@@ -38,6 +38,11 @@ def interview_detail(request, id_=None):
 	}
 	return render(request, 'people/interview_detail.html', context)
 
+def why_interview(request):
+	context = {
+		'show_last_div' : False,
+	}
+	return render(request, 'people/why_interview.html', context)
 
 def interview_request(request):
 	if request.method == 'POST':
@@ -54,9 +59,9 @@ def interview_request(request):
 	context = {
 		'show_last_div' : False,
 		'form' : form,
-		"tab_text": "Book My Interview!",
+		"tab_text": "Confirm my Interview",
 		"top_text": "Lets Book your Interview with Ali!",
-		"form_text": "Please chose a social media platform, and enter the username. Or you can chose to give your email!",
+		"form_text": "Please chose a communication channel, and provide us with your username. Or you can chose to give your email!",
 	}
 	return render(request, 'general_form.html', context)
 

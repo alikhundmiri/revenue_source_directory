@@ -22,4 +22,5 @@ urlpatterns = [
     path('<int:id_>/', views.interview_detail , name='interview_detail'),
     path('interview_request/', views.interview_request, name='interview_request'),
     path('thankyou_page/', views.thankyou_page, name='thankyou_page'),
+
 ]

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Thank you! | {{ block.super }}
+{% endblock %}
+
+{% block head_extras %}
+
+{% endblock %}
+
+{% block content_2 %}
+<div style="margin-top: 100px"></div>
+<div class="row">
+	<div class="col">
+		<p class="emoji-header-center">🧐</p>
+		<h3>Why Interview?</h3>
+		<p class="lead">
+			Because your words are gold.
+			<br>
+			<br>
+			Let me explain. This is 21st century, and a lot of people are still stuck on education/jobs which were designed as per 20th century life style and requirements.
+			<br>
+			<br>
+			Believe it or not, Automation and AI are coming. when they are mainstream, most of the people will lose their jobs because a Program or Robot could do their job better than them. 
+			<br>
+			<br>
+			Before that happens, I want people to know that there are new, better, and more effective ways to make money.
+			<br>
+			So if you are making money using the new careers fields, I want your story on Revensours.
+		</p>
+	</div>
+</div>
+<div style="margin-top: 100px"></div>
+<div class="row">
+	<div class="col">
+		<h1 class="emoji-header-center">🎙</h1>		
+		<h3>How will you take my interview?</h3>
+		<p class="lead">
+			The interview will proceed over multiple email/DM sessons.
+			<br>
+			If you are up for it, a video chat as well! either on Instagram, Skype or any other platform you prefer.
+		</p>
+	</div>
+</div>
+<div style="margin-top: 100px"></div>
+<div class="row">
+	<div class="col">
+		<h1 class="emoji-header-center">💰</h1>		
+		<h3>How much will it cost?</h3>
+		<p class="lead">
+			Nothing.
+			Its free. All I want is people to know your story.
+		</p>
+	</div>
+</div>
+<div style="margin-top: 100px"></div>
+
+<div class="row">
+	<div class="col">
+		<h1 class="emoji-header-center">😎</h1>		
+		<h3>Interested?</h3>
+		<p class="lead">
+			Amazing!
+			<br>
+			<br>
+			click on the button below to provide me with your contact information.
+			<br>
+			You can choose between your email address or an ID from any Social Media.
+		</p>
+		<a class="btn btn-outline-primary" href="{% url 'people:interview_request' %}" role="button">
+			Book My Interview
+		</a>
+	</div>
+</div>
+<div style="margin-top: 100px"></div>
+
+{% endblock %}
+
+

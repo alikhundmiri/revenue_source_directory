@@ -21,6 +21,14 @@
 
 	<!-- Custom styles for this template -->
 	<link href="{% static 'base/css/3-col-portfolio.css' %}" rel="stylesheet">
+	<style type="text/css">
+	.emoji-header {
+		font-size: 100px !important;
+	}
+	.emoji-header-center {
+		font-size: 100px !important;
+		text-align: center;
+	}</style>
 
 	{% block head_extras %}
 	{% endblock %}
@@ -76,12 +84,19 @@
 				</button>
 				<hr>
 				<p>
-					Reven sours is a website to learn about opportunities to earn money online. You can get yourself interviewed and be featured on RevenSours. <br>
+					Revensours was built to share experience with others who wany to learn about opportunities to earn money online. Get yourself interviewed and be featured on RevenSours.
+				</p>
+
+				<p class="emoji-header-center">🙌📈📢</p>
+				<p>
 					The only criterion to get interviewed is to be earning a decent amount of revenue using social media.
-					<br>
 					Your Niche doesn't matter!
 				</p>
-				<a class="btn btn-outline-primary" href="{% url 'people:interview_request' %}" role="button">Book your Interview Today!</a>
+				<a class="btn btn-outline-primary" href="{% url 'why_interview' %}" role="button">
+					Learn More
+				</a>
+				<br>
+				<a href="{% url 'people:interview_request' %}">Book now</a>
 
 			</div>
 		</div>	
@@ -95,14 +110,14 @@
 				This project is created, developed and maintained by a solo maker.
 				<br>
 				Copyright &copy;  <a target="_blank" href="https://twitter.com/newlifeshoes">Ali Khundmiri</a> 2018</p>
-		</div>
-		<!-- /.container -->
-	</footer>
+			</div>
+			<!-- /.container -->
+		</footer>
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="{% static 'base/vendor/jquery/jquery.min.js' %}"></script>
-	<script src="{% static 'base/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script src="{% static 'base/vendor/jquery/jquery.min.js' %}"></script>
+		<script src="{% static 'base/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-</body>
+	</body>
 
-</html>
+	</html>
