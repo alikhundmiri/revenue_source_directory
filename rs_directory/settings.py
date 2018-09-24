@@ -166,8 +166,8 @@ USE_TZ = True
 CUSTOM_PROJECT_NAME = "rs_directory"
 
 AWS_STORAGE_BUCKET_NAME = 'side-projects'
-AWS_ACCESS_KEY_ID = os.environ.get('S3_KEY')
-AWS_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET')
+AWS_ACCESS_KEY_ID = 'AKIAI4AXWQFXLSUF3B4Q'
+AWS_SECRET_ACCESS_KEY = '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'
 
 # Tell django-storages that when coming up with the URL for an item in S3 storage, keep
 # it simple - just use this domain plus the path. (If this isn't set, things get complicated).

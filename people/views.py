@@ -39,8 +39,22 @@ def interview_detail(request, id_=None):
 	return render(request, 'people/interview_detail.html', context)
 
 def why_interview(request):
+	if request.method == 'POST':
+		form = InterviewRequestForm(request.POST or None)
+		if form.is_valid():
+			# product_name = form.cleaned_data.get("product_name")
+			instance = form.save(commit=False)
+			instance.save()
+			return HttpResponseRedirect(reverse('people:thankyou_page'))
+
+	else:
+		form = InterviewRequestForm()
+
+
 	context = {
 		'show_last_div' : False,
+		'form' : form,
+		"tab_text": "Confirm my Interview",
 	}
 	return render(request, 'people/why_interview.html', context)
 
@@ -64,6 +78,7 @@ def interview_request(request):
 		"form_text": "Please chose a communication channel, and provide us with your username. Or you can chose to give your email!",
 	}
 	return render(request, 'general_form.html', context)
+
 
 def thankyou_page(request):
 	context = {
